@@ -7,3 +7,4 @@ chapters:
 - file: BusinessUnderstanding
 - file: DataUnderstanding
 - file: PreProcessing
+- file: Oversampling

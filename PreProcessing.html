@@ -60,6 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'PreProcessing';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Oversampling Data" href="Oversampling.html" />
     <link rel="prev" title="Data Understanding" href="DataUnderstanding.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -182,6 +183,7 @@
 <li class="toctree-l1"><a class="reference internal" href="BusinessUnderstanding.html"><strong>Business Understanding</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="DataUnderstanding.html"><strong>Data Understanding</strong></a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Analisis IRIS di Power BI</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Oversampling.html"><strong>Oversampling Data</strong></a></li>
 </ul>
 
     </div>
@@ -500,7 +502,57 @@ Requirement already satisfied: typing-extensions&gt;=4.6.0 in /home/codespace/.l
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>✅ Dataset Iris berhasil diupload ke PostgreSQL tanpa baris pertama!
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">25</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="c1"># Buat connection string</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="n">conn_str</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;postgresql+psycopg2://</span><span class="si">{</span><span class="n">user</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="s2">@</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">dbname</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">25</span> <span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="n">conn_str</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">28</span> <span class="c1"># 5. Upload dataset ke tabel iris</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span> <span class="n">df</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s2">&quot;iris&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s2">&quot;replace&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nn">File &lt;string&gt;:2,</span> in <span class="ni">create_engine</span><span class="nt">(url, **kwargs)</span>
+
+<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/site-packages/sqlalchemy/util/deprecations.py:281,</span> in <span class="ni">deprecated_params.&lt;locals&gt;.decorate.&lt;locals&gt;.warned</span><span class="nt">(fn, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">274</span>     <span class="k">if</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">275</span>         <span class="n">_warn_with_version</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">276</span>             <span class="n">messages</span><span class="p">[</span><span class="n">m</span><span class="p">],</span>
+<span class="g g-Whitespace">    </span><span class="mi">277</span>             <span class="n">versions</span><span class="p">[</span><span class="n">m</span><span class="p">],</span>
+<span class="g g-Whitespace">    </span><span class="mi">278</span>             <span class="n">version_warnings</span><span class="p">[</span><span class="n">m</span><span class="p">],</span>
+<span class="g g-Whitespace">    </span><span class="mi">279</span>             <span class="n">stacklevel</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">280</span>         <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">281</span> <span class="k">return</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/site-packages/sqlalchemy/engine/create.py:564,</span> in <span class="ni">create_engine</span><span class="nt">(url, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">561</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;empty_in_strategy&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">563</span> <span class="c1"># create url.URL object</span>
+<span class="ne">--&gt; </span><span class="mi">564</span> <span class="n">u</span> <span class="o">=</span> <span class="n">_url</span><span class="o">.</span><span class="n">make_url</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">566</span> <span class="n">u</span><span class="p">,</span> <span class="n">plugins</span><span class="p">,</span> <span class="n">kwargs</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">_instantiate_plugins</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">568</span> <span class="n">entrypoint</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">_get_entrypoint</span><span class="p">()</span>
+
+<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/site-packages/sqlalchemy/engine/url.py:856,</span> in <span class="ni">make_url</span><span class="nt">(name_or_url)</span>
+<span class="g g-Whitespace">    </span><span class="mi">840</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Given a string, produce a new URL instance.</span>
+<span class="g g-Whitespace">    </span><span class="mi">841</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">842</span><span class="sd"> The format of the URL generally follows `RFC-1738</span>
+<span class="sd">   (...)    852 </span>
+<span class="g g-Whitespace">    </span><span class="mi">853</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">855</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">name_or_url</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">856</span>     <span class="k">return</span> <span class="n">_parse_url</span><span class="p">(</span><span class="n">name_or_url</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">857</span> <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">name_or_url</span><span class="p">,</span> <span class="n">URL</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">858</span>     <span class="n">name_or_url</span><span class="p">,</span> <span class="s2">&quot;_sqla_is_testing_if_this_is_a_mock_object&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">859</span> <span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">860</span>     <span class="k">raise</span> <span class="n">exc</span><span class="o">.</span><span class="n">ArgumentError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">861</span>         <span class="sa">f</span><span class="s2">&quot;Expected string or URL object, got </span><span class="si">{</span><span class="n">name_or_url</span><span class="si">!r}</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">862</span>     <span class="p">)</span>
+
+<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/site-packages/sqlalchemy/engine/url.py:917,</span> in <span class="ni">_parse_url</span><span class="nt">(name)</span>
+<span class="g g-Whitespace">    </span><span class="mi">914</span>     <span class="n">name</span> <span class="o">=</span> <span class="n">components</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">916</span>     <span class="k">if</span> <span class="n">components</span><span class="p">[</span><span class="s2">&quot;port&quot;</span><span class="p">]:</span>
+<span class="ne">--&gt; </span><span class="mi">917</span>         <span class="n">components</span><span class="p">[</span><span class="s2">&quot;port&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">components</span><span class="p">[</span><span class="s2">&quot;port&quot;</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">919</span>     <span class="k">return</span> <span class="n">URL</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">components</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+<span class="g g-Whitespace">    </span><span class="mi">921</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="ne">ValueError</span>: invalid literal for int() with base 10: &#39;None&#39;
 </pre></div>
 </div>
 </div>
@@ -666,6 +718,15 @@ dataset_clean
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title"><strong>Data Understanding</strong></p>
       </div>
+    </a>
+    <a class="right-next"
+       href="Oversampling.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><strong>Oversampling Data</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
