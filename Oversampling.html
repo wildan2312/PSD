@@ -378,10 +378,22 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data-iris"><strong>Load data iris</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hapus-15-data-awal-dari-class-iris-setosa"><strong>Hapus 15 data awal dari class iris-setosa</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menampilkan-data-yang-sudah-dihapus"><strong>Menampilkan data yang sudah dihapus</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meampilkan-data-yang-sudah-seimbang-dengan-smote"><strong>Meampilkan data yang sudah seimbang dengan SMOTE</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data-iris"><strong>Load data iris</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hapus-15-data-awal-dari-class-iris-setosa"><strong>Hapus 15 data awal dari class iris-setosa</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menampilkan-data-yang-sudah-dihapus"><strong>Menampilkan data yang sudah dihapus</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data-yang-sudah-seimbang-dengan-pca"><strong>Visualisasi data yang sudah seimbang dengan pca</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-dengan-naive-bayes-dan-svm"><strong>Klasifikasi dengan Naive Bayes dan SVM</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-menggunakan-baggingclassifier"><strong>Klasifikasi menggunakan BaggingClassifier</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data-bank"><strong>Load data Bank</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#buat-data-imbalance"><strong>Buat Data Imbalance</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menampilkan-data-kolom-y-yang-tidak-seimbang"><strong>Menampilkan Data Kolom “y” Yang Tidak Seimbang</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menampilkan-data-yang-sudah-di-smote"><strong>Menampilkan Data Yang sudah di SMOTE</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-dengan-svm-dan-nb"><strong>Klasifikasi Dengan SVM dan NB</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Klasifikasi menggunakan BaggingClassifier</strong></a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -466,9 +478,30 @@ Requirement already satisfied: typing-extensions&gt;=4.6.0 in /home/codespace/.l
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: imbalanced-learn in /usr/local/python/3.12.1/lib/python3.12/site-packages (0.14.0)
 Requirement already satisfied: numpy&lt;3,&gt;=1.25.2 in /home/codespace/.local/lib/python3.12/site-packages (from imbalanced-learn) (2.3.1)
 Requirement already satisfied: scipy&lt;2,&gt;=1.11.4 in /home/codespace/.local/lib/python3.12/site-packages (from imbalanced-learn) (1.16.0)
-Requirement already satisfied: scikit-learn&lt;2,&gt;=1.4.2 in /home/codespace/.local/lib/python3.12/site-packages (from imbalanced-learn) (1.7.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: scikit-learn&lt;2,&gt;=1.4.2 in /home/codespace/.local/lib/python3.12/site-packages (from imbalanced-learn) (1.7.0)
 Requirement already satisfied: joblib&lt;2,&gt;=1.2.0 in /home/codespace/.local/lib/python3.12/site-packages (from imbalanced-learn) (1.5.1)
 Requirement already satisfied: threadpoolctl&lt;4,&gt;=2.0.0 in /home/codespace/.local/lib/python3.12/site-packages (from imbalanced-learn) (3.6.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">25.1.1</span> -&gt; <span class=" -Color -Color-Green">25.2</span>
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">python3 -m pip install --upgrade pip</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">dotenv</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: python-dotenv in /usr/local/python/3.12.1/lib/python3.12/site-packages (1.1.1)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">25.1.1</span> -&gt; <span class=" -Color -Color-Green">25.2</span>
@@ -598,9 +631,8 @@ Requirement already satisfied: threadpoolctl&lt;4,&gt;=2.0.0 in /home/codespace/
 </div>
 </div>
 </div>
-</section>
 <section id="hapus-15-data-awal-dari-class-iris-setosa">
-<h2><strong>Hapus 15 data awal dari class iris-setosa</strong><a class="headerlink" href="#hapus-15-data-awal-dari-class-iris-setosa" title="Link to this heading">#</a></h2>
+<h3><strong>Hapus 15 data awal dari class iris-setosa</strong><a class="headerlink" href="#hapus-15-data-awal-dari-class-iris-setosa" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ambil semua iris-setosa</span>
@@ -631,7 +663,7 @@ Name: count, dtype: int64
 </div>
 </section>
 <section id="menampilkan-data-yang-sudah-dihapus">
-<h2><strong>Menampilkan data yang sudah dihapus</strong><a class="headerlink" href="#menampilkan-data-yang-sudah-dihapus" title="Link to this heading">#</a></h2>
+<h3><strong>Menampilkan data yang sudah dihapus</strong><a class="headerlink" href="#menampilkan-data-yang-sudah-dihapus" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
@@ -669,8 +701,8 @@ Name: count, dtype: int64
 </div>
 </div>
 </section>
-<section id="meampilkan-data-yang-sudah-seimbang-dengan-smote">
-<h2><strong>Meampilkan data yang sudah seimbang dengan SMOTE</strong><a class="headerlink" href="#meampilkan-data-yang-sudah-seimbang-dengan-smote" title="Link to this heading">#</a></h2>
+<section id="visualisasi-data-yang-sudah-seimbang-dengan-pca">
+<h3><strong>Visualisasi data yang sudah seimbang dengan pca</strong><a class="headerlink" href="#visualisasi-data-yang-sudah-seimbang-dengan-pca" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -766,6 +798,874 @@ Name: count, dtype: int64
 </div>
 </div>
 </section>
+<section id="klasifikasi-dengan-naive-bayes-dan-svm">
+<h3><strong>Klasifikasi dengan Naive Bayes dan SVM</strong><a class="headerlink" href="#klasifikasi-dengan-naive-bayes-dan-svm" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.naive_bayes</span><span class="w"> </span><span class="kn">import</span> <span class="n">GaussianNB</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.svm</span><span class="w"> </span><span class="kn">import</span> <span class="n">SVC</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">accuracy_score</span>
+
+<span class="c1"># Fitur numerik &amp; target</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">merge_df</span><span class="p">[[</span><span class="s2">&quot;petal_length&quot;</span><span class="p">,</span> <span class="s2">&quot;petal_width&quot;</span><span class="p">,</span> <span class="s2">&quot;sepal_length&quot;</span><span class="p">,</span> <span class="s2">&quot;sepal_width&quot;</span><span class="p">]]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">merge_df</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">]</span>
+
+<span class="c1"># Split train/test (stratify biar proporsi class tetap)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span>
+<span class="p">)</span>
+
+<span class="c1"># ===== Naive Bayes =====</span>
+<span class="n">nb_model</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
+<span class="n">nb_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_pred_nb</span> <span class="o">=</span> <span class="n">nb_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== Naive Bayes (Belum SMOTE) ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Accuracy: </span><span class="si">{</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred_nb</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_nb</span><span class="p">))</span>
+
+<span class="c1"># ===== SVM =====</span>
+<span class="n">svm_model</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">svm_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_pred_svm</span> <span class="o">=</span> <span class="n">svm_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== SVM (Belum SMOTE) ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Accuracy: </span><span class="si">{</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred_svm</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_svm</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== Naive Bayes (Belum SMOTE) ===
+Accuracy: 100.00%
+                 precision    recall  f1-score   support
+
+    Iris-setosa       1.00      1.00      1.00         3
+Iris-versicolor       1.00      1.00      1.00        10
+ Iris-virginica       1.00      1.00      1.00        10
+
+       accuracy                           1.00        23
+      macro avg       1.00      1.00      1.00        23
+   weighted avg       1.00      1.00      1.00        23
+
+
+=== SVM (Belum SMOTE) ===
+Accuracy: 100.00%
+                 precision    recall  f1-score   support
+
+    Iris-setosa       1.00      1.00      1.00         3
+Iris-versicolor       1.00      1.00      1.00        10
+ Iris-virginica       1.00      1.00      1.00        10
+
+       accuracy                           1.00        23
+      macro avg       1.00      1.00      1.00        23
+   weighted avg       1.00      1.00      1.00        23
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">accuracy_score</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="n">X_train_res</span><span class="p">,</span> <span class="n">X_test_res</span><span class="p">,</span> <span class="n">y_train_res</span><span class="p">,</span> <span class="n">y_test_res</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X_res</span><span class="p">,</span> <span class="n">y_res</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y_res</span>
+<span class="p">)</span>
+
+<span class="c1"># ===== Naive Bayes =====</span>
+<span class="n">nb_model_res</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
+<span class="n">nb_model_res</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_res</span><span class="p">,</span> <span class="n">y_train_res</span><span class="p">)</span>
+<span class="n">y_pred_nb_res</span> <span class="o">=</span> <span class="n">nb_model_res</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_res</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== Naive Bayes (Setelah SMOTE) ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Accuracy: </span><span class="si">{</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test_res</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred_nb_res</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test_res</span><span class="p">,</span> <span class="n">y_pred_nb_res</span><span class="p">))</span>
+
+<span class="c1"># ===== SVM =====</span>
+<span class="n">svm_model_res</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">svm_model_res</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_res</span><span class="p">,</span> <span class="n">y_train_res</span><span class="p">)</span>
+<span class="n">y_pred_svm_res</span> <span class="o">=</span> <span class="n">svm_model_res</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_res</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== SVM (Setelah SMOTE) ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Accuracy: </span><span class="si">{</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test_res</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred_svm_res</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test_res</span><span class="p">,</span> <span class="n">y_pred_svm_res</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== Naive Bayes (Setelah SMOTE) ===
+Accuracy: 96.67%
+                 precision    recall  f1-score   support
+
+    Iris-setosa       1.00      1.00      1.00        10
+Iris-versicolor       1.00      0.90      0.95        10
+ Iris-virginica       0.91      1.00      0.95        10
+
+       accuracy                           0.97        30
+      macro avg       0.97      0.97      0.97        30
+   weighted avg       0.97      0.97      0.97        30
+
+
+=== SVM (Setelah SMOTE) ===
+Accuracy: 96.67%
+                 precision    recall  f1-score   support
+
+    Iris-setosa       1.00      1.00      1.00        10
+Iris-versicolor       1.00      0.90      0.95        10
+ Iris-virginica       0.91      1.00      0.95        10
+
+       accuracy                           0.97        30
+      macro avg       0.97      0.97      0.97        30
+   weighted avg       0.97      0.97      0.97        30
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sebelum SMOTE</p>
+<ul class="simple">
+<li><p>Naive Bayes &amp; SVM sama-sama dapat 100% akurasi → ini tanda kuat ada overfitting ke kelas mayoritas (karena dataset imbalance).</p></li>
+</ul>
+<p>Setelah SMOTE</p>
+<ul class="simple">
+<li><p>Akurasi turun sedikit (≈96.67%) → tapi ini justru lebih realistis karena model dipaksa belajar semua kelas, bukan hanya mayoritas.</p></li>
+<li><p>Precision, recall, dan f1-score lebih seimbang.</p></li>
+</ul>
+<p>1.100% sebelum SMOTE bukan berarti model sempurna → itu karena data tidak seimbang. Model cukup menebak kelas mayoritas untuk dapat skor tinggi.</p>
+<p>2.Setelah SMOTE walaupun akurasi turun, hasilnya lebih dapat dipercaya karena setiap kelas punya representasi data yang sama.</p>
+<p>3.F1-score setelah SMOTE masih sangat tinggi (96.65%) → artinya model tetap sangat baik, tapi lebih adil ke semua kelas.</p>
+</section>
+<section id="klasifikasi-menggunakan-baggingclassifier">
+<h3><strong>Klasifikasi menggunakan BaggingClassifier</strong><a class="headerlink" href="#klasifikasi-menggunakan-baggingclassifier" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaggingClassifier</span>
+
+<span class="c1"># Bagging Naive Bayes (Belum SMOTE)</span>
+
+<span class="n">bag_nb10</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">GaussianNB</span><span class="p">(),</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">bag_nb10</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_pred_bag_nb10</span> <span class="o">=</span> <span class="n">bag_nb10</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Bagging Naive Bayes (Belum SMOTE, n=10) ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Accuracy: </span><span class="si">{</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred_bag_nb10</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+
+<span class="n">bag_nb20</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">GaussianNB</span><span class="p">(),</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">bag_nb20</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_pred_bag_nb20</span> <span class="o">=</span> <span class="n">bag_nb20</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Bagging Naive Bayes (Belum SMOTE, n=20) ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Accuracy: </span><span class="si">{</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred_bag_nb20</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># Bagging SVM (Belum SMOTE)</span>
+
+<span class="n">bag_svm10</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">),</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">bag_svm10</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_pred_bag_svm10</span> <span class="o">=</span> <span class="n">bag_svm10</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Bagging SVM (Belum SMOTE, n=10) ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Accuracy: </span><span class="si">{</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred_bag_svm10</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+
+<span class="n">bag_svm20</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">),</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">bag_svm20</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_pred_bag_svm20</span> <span class="o">=</span> <span class="n">bag_svm20</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Bagging SVM (Belum SMOTE, n=20) ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Accuracy: </span><span class="si">{</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred_bag_svm20</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== Bagging Naive Bayes (Belum SMOTE, n=10) ===
+Accuracy: 100.00%
+
+=== Bagging Naive Bayes (Belum SMOTE, n=20) ===
+Accuracy: 100.00%
+
+=== Bagging SVM (Belum SMOTE, n=10) ===
+Accuracy: 100.00%
+
+=== Bagging SVM (Belum SMOTE, n=20) ===
+Accuracy: 100.00%
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaggingClassifier</span>
+
+<span class="c1"># Bagging Naive Bayes (Setelah SMOTE)</span>
+
+<span class="n">bag_nb10_res</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">GaussianNB</span><span class="p">(),</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">bag_nb10_res</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_res</span><span class="p">,</span> <span class="n">y_train_res</span><span class="p">)</span>
+<span class="n">y_pred_bag_nb10_res</span> <span class="o">=</span> <span class="n">bag_nb10_res</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_res</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Bagging Naive Bayes (Setelah SMOTE, n=10) ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Accuracy: </span><span class="si">{</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test_res</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred_bag_nb10_res</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+
+<span class="n">bag_nb20_res</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">GaussianNB</span><span class="p">(),</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">bag_nb20_res</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_res</span><span class="p">,</span> <span class="n">y_train_res</span><span class="p">)</span>
+<span class="n">y_pred_bag_nb20_res</span> <span class="o">=</span> <span class="n">bag_nb20_res</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_res</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Bagging Naive Bayes (Setelah SMOTE, n=20) ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Accuracy: </span><span class="si">{</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test_res</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred_bag_nb20_res</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+
+<span class="c1"># Bagging SVM (Setelah SMOTE)</span>
+
+<span class="n">bag_svm10_res</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">),</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">bag_svm10_res</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_res</span><span class="p">,</span> <span class="n">y_train_res</span><span class="p">)</span>
+<span class="n">y_pred_bag_svm10_res</span> <span class="o">=</span> <span class="n">bag_svm10_res</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_res</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Bagging SVM (Setelah SMOTE, n=10) ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Accuracy: </span><span class="si">{</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test_res</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred_bag_svm10_res</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+
+<span class="n">bag_svm20_res</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">),</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">bag_svm20_res</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_res</span><span class="p">,</span> <span class="n">y_train_res</span><span class="p">)</span>
+<span class="n">y_pred_bag_svm20_res</span> <span class="o">=</span> <span class="n">bag_svm20_res</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_res</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Bagging SVM (Setelah SMOTE, n=20) ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Accuracy: </span><span class="si">{</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test_res</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred_bag_svm20_res</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== Bagging Naive Bayes (Setelah SMOTE, n=10) ===
+Accuracy: 96.67%
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== Bagging Naive Bayes (Setelah SMOTE, n=20) ===
+Accuracy: 96.67%
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== Bagging SVM (Setelah SMOTE, n=10) ===
+Accuracy: 96.67%
+
+=== Bagging SVM (Setelah SMOTE, n=20) ===
+Accuracy: 96.67%
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Kenapa lebih tinggi sebelum SMOTE ?</strong></p>
+<ul class="simple">
+<li><p>Karena akurasi saja bisa bias ke mayoritas.</p></li>
+<li><p>Setelah SMOTE, model tidak bisa hanya mengandalkan mayoritas, harus benar-benar memahami semua kelas.</p></li>
+</ul>
+<p><strong>Analogi singkat</strong></p>
+<p>Bayangkan 100 data:</p>
+<ul class="simple">
+<li><p>Sebelum SMOTE → 95 kelas A, 5 kelas B.
+Model selalu menebak “A” → akurasi 95%.</p></li>
+<li><p>Setelah SMOTE → jadi 95 kelas A, 95 kelas B.
+Model tidak bisa asal nebak “A”, harus benar-benar belajar → akurasi mungkin turun jadi 90%, tapi lebih fair.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaggingClassifier</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span>
+
+<span class="c1"># ==========================</span>
+<span class="c1"># Data sebelum SMOTE</span>
+<span class="c1"># ==========================</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">merge_df</span><span class="p">[[</span><span class="s2">&quot;petal_length&quot;</span><span class="p">,</span> <span class="s2">&quot;petal_width&quot;</span><span class="p">,</span> <span class="s2">&quot;sepal_length&quot;</span><span class="p">,</span> <span class="s2">&quot;sepal_width&quot;</span><span class="p">]]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">merge_df</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">]</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span>
+<span class="p">)</span>
+
+<span class="c1"># Bagging n_estimators=10 (sebelum SMOTE)</span>
+<span class="n">bag10</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span>
+    <span class="n">estimator</span><span class="o">=</span><span class="n">DecisionTreeClassifier</span><span class="p">(),</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
+<span class="p">)</span>
+<span class="n">bag10</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_pred_bag10</span> <span class="o">=</span> <span class="n">bag10</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">acc_bag10</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_bag10</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="c1"># Bagging n_estimators=20 (sebelum SMOTE)</span>
+<span class="n">bag20</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span>
+    <span class="n">estimator</span><span class="o">=</span><span class="n">DecisionTreeClassifier</span><span class="p">(),</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
+<span class="p">)</span>
+<span class="n">bag20</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_pred_bag20</span> <span class="o">=</span> <span class="n">bag20</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">acc_bag20</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_bag20</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="c1"># ==========================</span>
+<span class="c1"># Data setelah SMOTE</span>
+<span class="c1"># ==========================</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">imblearn.over_sampling</span><span class="w"> </span><span class="kn">import</span> <span class="n">SMOTE</span>
+<span class="n">sm</span> <span class="o">=</span> <span class="n">SMOTE</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">X_res</span><span class="p">,</span> <span class="n">y_res</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">X_train_res</span><span class="p">,</span> <span class="n">X_test_res</span><span class="p">,</span> <span class="n">y_train_res</span><span class="p">,</span> <span class="n">y_test_res</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X_res</span><span class="p">,</span> <span class="n">y_res</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y_res</span>
+<span class="p">)</span>
+
+<span class="c1"># Bagging n_estimators=10 (setelah SMOTE)</span>
+<span class="n">bag10_res</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span>
+    <span class="n">estimator</span><span class="o">=</span><span class="n">DecisionTreeClassifier</span><span class="p">(),</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
+<span class="p">)</span>
+<span class="n">bag10_res</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_res</span><span class="p">,</span> <span class="n">y_train_res</span><span class="p">)</span>
+<span class="n">y_pred_bag10_res</span> <span class="o">=</span> <span class="n">bag10_res</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_res</span><span class="p">)</span>
+<span class="n">acc_bag10_res</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test_res</span><span class="p">,</span> <span class="n">y_pred_bag10_res</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="c1"># Bagging n_estimators=20 (setelah SMOTE)</span>
+<span class="n">bag20_res</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span>
+    <span class="n">estimator</span><span class="o">=</span><span class="n">DecisionTreeClassifier</span><span class="p">(),</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
+<span class="p">)</span>
+<span class="n">bag20_res</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_res</span><span class="p">,</span> <span class="n">y_train_res</span><span class="p">)</span>
+<span class="n">y_pred_bag20_res</span> <span class="o">=</span> <span class="n">bag20_res</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_res</span><span class="p">)</span>
+<span class="n">acc_bag20_res</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test_res</span><span class="p">,</span> <span class="n">y_pred_bag20_res</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="c1"># ==========================</span>
+<span class="c1"># Hasil</span>
+<span class="c1"># ==========================</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;Dataset&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Sebelum SMOTE&quot;</span><span class="p">,</span> <span class="s2">&quot;Sebelum SMOTE&quot;</span><span class="p">,</span> <span class="s2">&quot;Setelah SMOTE&quot;</span><span class="p">,</span> <span class="s2">&quot;Setelah SMOTE&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;n_estimators&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
+    <span class="s2">&quot;Accuracy (%)&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">acc_bag10</span><span class="p">,</span> <span class="n">acc_bag20</span><span class="p">,</span> <span class="n">acc_bag10_res</span><span class="p">,</span> <span class="n">acc_bag20_res</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         Dataset  n_estimators  Accuracy (%)
+0  Sebelum SMOTE            10    100.000000
+1  Sebelum SMOTE            20    100.000000
+2  Setelah SMOTE            10     93.333333
+3  Setelah SMOTE            20     90.000000
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="load-data-bank">
+<h2><strong>Load data Bank</strong><a class="headerlink" href="#load-data-bank" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># =============================================</span>
+<span class="c1"># Upload dataset bank.csv ke PostgreSQL Aiven</span>
+<span class="c1"># =============================================</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_engine</span>
+
+<span class="c1"># 1️⃣ Baca file CSV lokal dengan delimiter &#39;;&#39;</span>
+<span class="n">df_bank</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;bank.csv&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data berhasil dibaca ✅&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_bank</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Kolom yang terbaca:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_bank</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+
+<span class="c1"># 2️⃣ Koneksi ke PostgreSQL Aiven</span>
+<span class="n">load_dotenv</span><span class="p">()</span>
+
+<span class="c1"># PostgreSQL</span>
+<span class="n">pg_host</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;PG_HOST&quot;</span><span class="p">)</span>
+<span class="n">pg_port</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;PG_PORT&quot;</span><span class="p">)</span>
+<span class="n">pg_db</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;PG_DB&quot;</span><span class="p">)</span>
+<span class="n">pg_user</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;PG_USER&quot;</span><span class="p">)</span>
+<span class="n">pg_password</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;PG_PASSWORD&quot;</span><span class="p">)</span>
+
+<span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;postgresql+psycopg2://</span><span class="si">{</span><span class="n">pg_user</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">pg_password</span><span class="si">}</span><span class="s2">@</span><span class="si">{</span><span class="n">pg_host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">pg_port</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">pg_db</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># 3️⃣ Simpan dataset ke tabel baru</span>
+<span class="n">table_name</span> <span class="o">=</span> <span class="s2">&quot;bank_marketing&quot;</span>
+<span class="n">df_bank</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="n">table_name</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s2">&quot;replace&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✅ Dataset berhasil diunggah ke PostgreSQL sebagai tabel &#39;</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data berhasil dibaca ✅
+   age          job  marital  education default  balance housing loan  \
+0   30   unemployed  married    primary      no     1787      no   no   
+1   33     services  married  secondary      no     4789     yes  yes   
+2   35   management   single   tertiary      no     1350     yes   no   
+3   30   management  married   tertiary      no     1476     yes  yes   
+4   59  blue-collar  married  secondary      no        0     yes   no   
+
+    contact  day month  duration  campaign  pdays  previous poutcome   y  
+0  cellular   19   oct        79         1     -1         0  unknown  no  
+1  cellular   11   may       220         1    339         4  failure  no  
+2  cellular   16   apr       185         1    330         1  failure  no  
+3   unknown    3   jun       199         4     -1         0  unknown  no  
+4   unknown    5   may       226         1     -1         0  unknown  no  
+
+Kolom yang terbaca:
+[&#39;age&#39;, &#39;job&#39;, &#39;marital&#39;, &#39;education&#39;, &#39;default&#39;, &#39;balance&#39;, &#39;housing&#39;, &#39;loan&#39;, &#39;contact&#39;, &#39;day&#39;, &#39;month&#39;, &#39;duration&#39;, &#39;campaign&#39;, &#39;pdays&#39;, &#39;previous&#39;, &#39;poutcome&#39;, &#39;y&#39;]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>✅ Dataset berhasil diunggah ke PostgreSQL sebagai tabel &#39;bank_marketing&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<section id="buat-data-imbalance">
+<h3><strong>Buat Data Imbalance</strong><a class="headerlink" href="#buat-data-imbalance" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">load_dotenv</span><span class="p">()</span>
+
+<span class="c1"># PostgreSQL</span>
+<span class="n">pg_host</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;PG_HOST&quot;</span><span class="p">)</span>
+<span class="n">pg_port</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;PG_PORT&quot;</span><span class="p">)</span>
+<span class="n">pg_db</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;PG_DB&quot;</span><span class="p">)</span>
+<span class="n">pg_user</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;PG_USER&quot;</span><span class="p">)</span>
+<span class="n">pg_password</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;PG_PASSWORD&quot;</span><span class="p">)</span>
+
+<span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;postgresql+psycopg2://</span><span class="si">{</span><span class="n">pg_user</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">pg_password</span><span class="si">}</span><span class="s2">@</span><span class="si">{</span><span class="n">pg_host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">pg_port</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">pg_db</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">)</span>
+
+<span class="n">table_name</span> <span class="o">=</span> <span class="s2">&quot;bank_marketing&quot;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SELECT * FROM </span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data berhasil diambil ✅&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="c1"># Pastikan kolom target ada</span>
+<span class="k">if</span> <span class="s1">&#39;y&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Kolom target &#39;y&#39; tidak ditemukan! Pastikan dataset memiliki kolom target bernama &#39;y&#39;.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Lihat distribusi awal kelas</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Distribusi awal kelas:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+
+<span class="c1"># Buat data menjadi imbalanced (contoh: hanya ambil 20% dari kelas mayoritas &#39;no&#39;)</span>
+<span class="n">yes_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;yes&#39;</span><span class="p">]</span>
+<span class="n">no_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;no&#39;</span><span class="p">]</span>
+
+<span class="c1"># Sampling sebagian kecil kelas mayoritas</span>
+<span class="n">no_sample</span> <span class="o">=</span> <span class="n">no_df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Gabungkan data imbalance</span>
+<span class="n">imbalanced_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">yes_df</span><span class="p">,</span> <span class="n">no_sample</span><span class="p">])</span>
+
+<span class="c1"># Acak ulang data agar tidak berurutan</span>
+<span class="n">imbalanced_df</span> <span class="o">=</span> <span class="n">imbalanced_df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Tampilkan distribusi baru</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Distribusi setelah dibuat imbalance:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">imbalanced_df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+
+<span class="c1"># Simpan ke variabel final</span>
+<span class="n">df_imbalanced</span> <span class="o">=</span> <span class="n">imbalanced_df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">✅ Dataset imbalance tersimpan ke variabel &#39;df_imbalanced&#39;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data berhasil diambil ✅
+   age          job  marital  education default  balance housing loan  \
+0   30   unemployed  married    primary      no     1787      no   no   
+1   33     services  married  secondary      no     4789     yes  yes   
+2   35   management   single   tertiary      no     1350     yes   no   
+3   30   management  married   tertiary      no     1476     yes  yes   
+4   59  blue-collar  married  secondary      no        0     yes   no   
+
+    contact  day month  duration  campaign  pdays  previous poutcome   y  
+0  cellular   19   oct        79         1     -1         0  unknown  no  
+1  cellular   11   may       220         1    339         4  failure  no  
+2  cellular   16   apr       185         1    330         1  failure  no  
+3   unknown    3   jun       199         4     -1         0  unknown  no  
+4   unknown    5   may       226         1     -1         0  unknown  no  
+
+Distribusi awal kelas:
+y
+no     4000
+yes     521
+Name: count, dtype: int64
+
+Distribusi setelah dibuat imbalance:
+y
+no     800
+yes    521
+Name: count, dtype: int64
+
+✅ Dataset imbalance tersimpan ke variabel &#39;df_imbalanced&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="menampilkan-data-kolom-y-yang-tidak-seimbang">
+<h3><strong>Menampilkan Data Kolom “y” Yang Tidak Seimbang</strong><a class="headerlink" href="#menampilkan-data-kolom-y-yang-tidak-seimbang" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Hitung jumlah tiap kelas</span>
+<span class="n">class_counts</span> <span class="o">=</span> <span class="n">df_imbalanced</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+
+<span class="c1"># Plot bar chart</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">class_counts</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">class_counts</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;skyblue&#39;</span><span class="p">,</span> <span class="s1">&#39;salmon&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribusi Kelas (Data Tidak Seimbang)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Kelas (y)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Jumlah Data&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="c1"># Tampilkan nilai di atas batang</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">class_counts</span><span class="o">.</span><span class="n">values</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b5e4f6f7a6885cf6cece6c7bae7127e2f29d77b13735d220460a60025cc8ea62.png" src="_images/b5e4f6f7a6885cf6cece6c7bae7127e2f29d77b13735d220460a60025cc8ea62.png" />
+</div>
+</div>
+</section>
+<section id="menampilkan-data-yang-sudah-di-smote">
+<h3><strong>Menampilkan Data Yang sudah di SMOTE</strong><a class="headerlink" href="#menampilkan-data-yang-sudah-di-smote" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">imblearn.over_sampling</span><span class="w"> </span><span class="kn">import</span> <span class="n">SMOTE</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># Pisahkan fitur dan target</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df_imbalanced</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df_imbalanced</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span>
+
+<span class="c1"># Ubah semua fitur kategorikal ke numerik (SMOTE hanya bisa untuk numerik)</span>
+<span class="n">X_encoded</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">drop_first</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Terapkan SMOTE</span>
+<span class="n">smote</span> <span class="o">=</span> <span class="n">SMOTE</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">X_res</span><span class="p">,</span> <span class="n">y_res</span> <span class="o">=</span> <span class="n">smote</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X_encoded</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Buat DataFrame hasil SMOTE</span>
+<span class="n">df_smote</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">X_res</span><span class="p">,</span> <span class="n">y_res</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Visualisasi Sebelum &amp; Sesudah SMOTE</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="c1"># Sebelum SMOTE</span>
+<span class="n">class_counts_before</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">class_counts_before</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">class_counts_before</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;skyblue&#39;</span><span class="p">,</span> <span class="s1">&#39;salmon&#39;</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Sebelum SMOTE&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Kelas (y)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Jumlah Data&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">class_counts_before</span><span class="o">.</span><span class="n">values</span><span class="p">):</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="o">+</span> <span class="mi">10</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+
+<span class="c1"># Sesudah SMOTE</span>
+<span class="n">class_counts_after</span> <span class="o">=</span> <span class="n">y_res</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">class_counts_after</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">class_counts_after</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;skyblue&#39;</span><span class="p">,</span> <span class="s1">&#39;salmon&#39;</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Setelah SMOTE&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Kelas (y)&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">class_counts_after</span><span class="o">.</span><span class="n">values</span><span class="p">):</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="o">+</span> <span class="mi">10</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Perbandingan Distribusi Kelas Sebelum &amp; Sesudah SMOTE&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/450d9b879d8507bdfc7e23fc30b14500afdde0d273669d2b672a1c07cde738c4.png" src="_images/450d9b879d8507bdfc7e23fc30b14500afdde0d273669d2b672a1c07cde738c4.png" />
+</div>
+</div>
+</section>
+<section id="klasifikasi-dengan-svm-dan-nb">
+<h3><strong>Klasifikasi Dengan SVM dan NB</strong><a class="headerlink" href="#klasifikasi-dengan-svm-dan-nb" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.naive_bayes</span><span class="w"> </span><span class="kn">import</span> <span class="n">GaussianNB</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.svm</span><span class="w"> </span><span class="kn">import</span> <span class="n">SVC</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_pipeline</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">precision_score</span><span class="p">,</span> <span class="n">recall_score</span><span class="p">,</span> <span class="n">f1_score</span><span class="p">,</span> <span class="n">classification_report</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">imblearn.over_sampling</span><span class="w"> </span><span class="kn">import</span> <span class="n">SMOTE</span>
+
+<span class="n">X_raw</span> <span class="o">=</span> <span class="n">df_imbalanced</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">])</span>
+<span class="n">y_raw</span> <span class="o">=</span> <span class="n">df_imbalanced</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span>
+
+<span class="c1"># Encode kategorikal -&gt; numeric (one-hot)</span>
+<span class="n">X_encoded</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">X_raw</span><span class="p">,</span> <span class="n">drop_first</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Fungsi pembantu untuk evaluasi</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">eval_metrics</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;Accuracy (%)&quot;</span><span class="p">:</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="s2">&quot;Precision (%)&quot;</span><span class="p">:</span> <span class="n">precision_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s2">&quot;weighted&quot;</span><span class="p">,</span> <span class="n">zero_division</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="s2">&quot;Recall (%)&quot;</span><span class="p">:</span> <span class="n">recall_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s2">&quot;weighted&quot;</span><span class="p">,</span> <span class="n">zero_division</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="s2">&quot;F1-score (%)&quot;</span><span class="p">:</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s2">&quot;weighted&quot;</span><span class="p">,</span> <span class="n">zero_division</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+    <span class="p">}</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># -----------------------</span>
+<span class="c1"># A. Sebelum SMOTE</span>
+<span class="c1"># -----------------------</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X_encoded</span><span class="p">,</span> <span class="n">y_raw</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y_raw</span>
+<span class="p">)</span>
+
+<span class="c1"># 1) Naive Bayes (sebelum SMOTE)</span>
+<span class="n">nb</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
+<span class="n">nb</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_pred_nb</span> <span class="o">=</span> <span class="n">nb</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== Naive Bayes (Sebelum SMOTE) ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Accuracy: </span><span class="si">{</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred_nb</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_nb</span><span class="p">,</span> <span class="n">zero_division</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;Model&quot;</span><span class="p">:</span><span class="s2">&quot;Naive Bayes&quot;</span><span class="p">,</span> <span class="s2">&quot;Dataset&quot;</span><span class="p">:</span><span class="s2">&quot;Sebelum SMOTE&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">eval_metrics</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_nb</span><span class="p">)})</span>
+
+<span class="c1"># 2) SVM (sebelum SMOTE)</span>
+<span class="n">svm_pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">StandardScaler</span><span class="p">(),</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">))</span>
+<span class="n">svm_pipe</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_pred_svm</span> <span class="o">=</span> <span class="n">svm_pipe</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== SVM (Sebelum SMOTE) ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Accuracy: </span><span class="si">{</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred_svm</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_svm</span><span class="p">,</span> <span class="n">zero_division</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;Model&quot;</span><span class="p">:</span><span class="s2">&quot;SVM (linear)&quot;</span><span class="p">,</span> <span class="s2">&quot;Dataset&quot;</span><span class="p">:</span><span class="s2">&quot;Sebelum SMOTE&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">eval_metrics</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_svm</span><span class="p">)})</span>
+
+<span class="c1"># -----------------------</span>
+<span class="c1"># B. Setelah SMOTE</span>
+<span class="c1"># -----------------------</span>
+<span class="n">sm</span> <span class="o">=</span> <span class="n">SMOTE</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">X_res</span><span class="p">,</span> <span class="n">y_res</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X_encoded</span><span class="p">,</span> <span class="n">y_raw</span><span class="p">)</span>
+
+<span class="c1"># Split ulang pada data hasil SMOTE</span>
+<span class="n">X_train_res</span><span class="p">,</span> <span class="n">X_test_res</span><span class="p">,</span> <span class="n">y_train_res</span><span class="p">,</span> <span class="n">y_test_res</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X_res</span><span class="p">,</span> <span class="n">y_res</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y_res</span>
+<span class="p">)</span>
+
+<span class="c1"># 1) Naive Bayes (setelah SMOTE)</span>
+<span class="n">nb_res</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
+<span class="n">nb_res</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_res</span><span class="p">,</span> <span class="n">y_train_res</span><span class="p">)</span>
+<span class="n">y_pred_nb_res</span> <span class="o">=</span> <span class="n">nb_res</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_res</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== Naive Bayes (Setelah SMOTE) ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Accuracy: </span><span class="si">{</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test_res</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred_nb_res</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test_res</span><span class="p">,</span> <span class="n">y_pred_nb_res</span><span class="p">,</span> <span class="n">zero_division</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;Model&quot;</span><span class="p">:</span><span class="s2">&quot;Naive Bayes&quot;</span><span class="p">,</span> <span class="s2">&quot;Dataset&quot;</span><span class="p">:</span><span class="s2">&quot;Setelah SMOTE&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">eval_metrics</span><span class="p">(</span><span class="n">y_test_res</span><span class="p">,</span> <span class="n">y_pred_nb_res</span><span class="p">)})</span>
+
+<span class="c1"># 2) SVM (setelah SMOTE)</span>
+<span class="n">svm_pipe_res</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">StandardScaler</span><span class="p">(),</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">))</span>
+<span class="n">svm_pipe_res</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_res</span><span class="p">,</span> <span class="n">y_train_res</span><span class="p">)</span>
+<span class="n">y_pred_svm_res</span> <span class="o">=</span> <span class="n">svm_pipe_res</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_res</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== SVM (Setelah SMOTE) ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Accuracy: </span><span class="si">{</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test_res</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred_svm_res</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test_res</span><span class="p">,</span> <span class="n">y_pred_svm_res</span><span class="p">,</span> <span class="n">zero_division</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;Model&quot;</span><span class="p">:</span><span class="s2">&quot;SVM (linear)&quot;</span><span class="p">,</span> <span class="s2">&quot;Dataset&quot;</span><span class="p">:</span><span class="s2">&quot;Setelah SMOTE&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">eval_metrics</span><span class="p">(</span><span class="n">y_test_res</span><span class="p">,</span> <span class="n">y_pred_svm_res</span><span class="p">)})</span>
+
+<span class="c1"># -----------------------</span>
+<span class="c1"># Ringkasan hasil</span>
+<span class="c1"># -----------------------</span>
+<span class="n">summary_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;Accuracy (%)&quot;</span><span class="p">,</span><span class="s2">&quot;Precision (%)&quot;</span><span class="p">,</span><span class="s2">&quot;Recall (%)&quot;</span><span class="p">,</span><span class="s2">&quot;F1-score (%)&quot;</span><span class="p">]:</span>
+    <span class="n">summary_df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">summary_df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Summary Comparison ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">summary_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== Naive Bayes (Sebelum SMOTE) ===
+Accuracy: 74.34%
+              precision    recall  f1-score   support
+
+          no       0.75      0.86      0.80       160
+         yes       0.73      0.56      0.63       105
+
+    accuracy                           0.74       265
+   macro avg       0.74      0.71      0.72       265
+weighted avg       0.74      0.74      0.74       265
+
+=== SVM (Sebelum SMOTE) ===
+Accuracy: 81.51%
+              precision    recall  f1-score   support
+
+          no       0.82      0.89      0.85       160
+         yes       0.80      0.70      0.75       105
+
+    accuracy                           0.82       265
+   macro avg       0.81      0.80      0.80       265
+weighted avg       0.81      0.82      0.81       265
+
+=== Naive Bayes (Setelah SMOTE) ===
+Accuracy: 76.88%
+              precision    recall  f1-score   support
+
+          no       0.73      0.84      0.78       160
+         yes       0.82      0.69      0.75       160
+
+    accuracy                           0.77       320
+   macro avg       0.77      0.77      0.77       320
+weighted avg       0.77      0.77      0.77       320
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== SVM (Setelah SMOTE) ===
+Accuracy: 86.56%
+              precision    recall  f1-score   support
+
+          no       0.86      0.87      0.87       160
+         yes       0.87      0.86      0.87       160
+
+    accuracy                           0.87       320
+   macro avg       0.87      0.87      0.87       320
+weighted avg       0.87      0.87      0.87       320
+
+
+=== Summary Comparison ===
+          Model        Dataset Accuracy (%) Precision (%) Recall (%)  \
+0   Naive Bayes  Sebelum SMOTE       74.34%        74.14%     74.34%   
+1  SVM (linear)  Sebelum SMOTE       81.51%        81.43%     81.51%   
+2   Naive Bayes  Setelah SMOTE       76.88%        77.49%     76.88%   
+3  SVM (linear)  Setelah SMOTE       86.56%        86.56%     86.56%   
+
+  F1-score (%)  
+0       73.58%  
+1       81.26%  
+2       76.74%  
+3       86.56%  
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h3><strong>Klasifikasi menggunakan BaggingClassifier</strong><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Dataset bank di klasifikasi menggunakan bagging NB dan SVM dengan 10 dan 20 n_estimators dan data yang belum di SMOTE dan yang sudah di SMOTE</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaggingClassifier</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.naive_bayes</span><span class="w"> </span><span class="kn">import</span> <span class="n">GaussianNB</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.svm</span><span class="w"> </span><span class="kn">import</span> <span class="n">SVC</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_pipeline</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">imblearn.over_sampling</span><span class="w"> </span><span class="kn">import</span> <span class="n">SMOTE</span>
+
+<span class="c1"># ==========================</span>
+<span class="c1"># Persiapan data</span>
+<span class="c1"># ==========================</span>
+<span class="n">X_raw</span> <span class="o">=</span> <span class="n">df_imbalanced</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">])</span>
+<span class="n">y_raw</span> <span class="o">=</span> <span class="n">df_imbalanced</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span>
+
+<span class="c1"># One-hot encoding untuk kolom kategorikal</span>
+<span class="n">X_encoded</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">X_raw</span><span class="p">,</span> <span class="n">drop_first</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Fungsi bantu evaluasi</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_accuracy</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># ==========================</span>
+<span class="c1"># 1️⃣ Sebelum SMOTE</span>
+<span class="c1"># ==========================</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X_encoded</span><span class="p">,</span> <span class="n">y_raw</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y_raw</span>
+<span class="p">)</span>
+
+<span class="c1"># ---- Bagging Naive Bayes ----</span>
+<span class="n">bag_nb_10</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">GaussianNB</span><span class="p">(),</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">bag_nb_10</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">acc_nb_10</span> <span class="o">=</span> <span class="n">get_accuracy</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">bag_nb_10</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+
+<span class="n">bag_nb_20</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">GaussianNB</span><span class="p">(),</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">bag_nb_20</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">acc_nb_20</span> <span class="o">=</span> <span class="n">get_accuracy</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">bag_nb_20</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+
+<span class="c1"># ---- Bagging SVM ----</span>
+<span class="c1"># SVM pakai pipeline dengan StandardScaler</span>
+<span class="n">svm_base</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">StandardScaler</span><span class="p">(),</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">))</span>
+
+<span class="n">bag_svm_10</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">svm_base</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">bag_svm_10</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">acc_svm_10</span> <span class="o">=</span> <span class="n">get_accuracy</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">bag_svm_10</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+
+<span class="n">bag_svm_20</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">svm_base</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">bag_svm_20</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">acc_svm_20</span> <span class="o">=</span> <span class="n">get_accuracy</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">bag_svm_20</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+
+<span class="n">results</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span>
+    <span class="p">{</span><span class="s2">&quot;Model&quot;</span><span class="p">:</span> <span class="s2">&quot;Bagging Naive Bayes&quot;</span><span class="p">,</span> <span class="s2">&quot;Dataset&quot;</span><span class="p">:</span> <span class="s2">&quot;Sebelum SMOTE&quot;</span><span class="p">,</span> <span class="s2">&quot;n_estimators&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;Accuracy (%)&quot;</span><span class="p">:</span> <span class="n">acc_nb_10</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;Model&quot;</span><span class="p">:</span> <span class="s2">&quot;Bagging Naive Bayes&quot;</span><span class="p">,</span> <span class="s2">&quot;Dataset&quot;</span><span class="p">:</span> <span class="s2">&quot;Sebelum SMOTE&quot;</span><span class="p">,</span> <span class="s2">&quot;n_estimators&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;Accuracy (%)&quot;</span><span class="p">:</span> <span class="n">acc_nb_20</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;Model&quot;</span><span class="p">:</span> <span class="s2">&quot;Bagging SVM&quot;</span><span class="p">,</span> <span class="s2">&quot;Dataset&quot;</span><span class="p">:</span> <span class="s2">&quot;Sebelum SMOTE&quot;</span><span class="p">,</span> <span class="s2">&quot;n_estimators&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;Accuracy (%)&quot;</span><span class="p">:</span> <span class="n">acc_svm_10</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;Model&quot;</span><span class="p">:</span> <span class="s2">&quot;Bagging SVM&quot;</span><span class="p">,</span> <span class="s2">&quot;Dataset&quot;</span><span class="p">:</span> <span class="s2">&quot;Sebelum SMOTE&quot;</span><span class="p">,</span> <span class="s2">&quot;n_estimators&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;Accuracy (%)&quot;</span><span class="p">:</span> <span class="n">acc_svm_20</span><span class="p">},</span>
+<span class="p">])</span>
+
+<span class="c1"># ==========================</span>
+<span class="c1"># 2️⃣ Setelah SMOTE</span>
+<span class="c1"># ==========================</span>
+<span class="n">sm</span> <span class="o">=</span> <span class="n">SMOTE</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">X_res</span><span class="p">,</span> <span class="n">y_res</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X_encoded</span><span class="p">,</span> <span class="n">y_raw</span><span class="p">)</span>
+
+<span class="n">X_train_res</span><span class="p">,</span> <span class="n">X_test_res</span><span class="p">,</span> <span class="n">y_train_res</span><span class="p">,</span> <span class="n">y_test_res</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X_res</span><span class="p">,</span> <span class="n">y_res</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y_res</span>
+<span class="p">)</span>
+
+<span class="c1"># ---- Bagging Naive Bayes ----</span>
+<span class="n">bag_nb_10_res</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">GaussianNB</span><span class="p">(),</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">bag_nb_10_res</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_res</span><span class="p">,</span> <span class="n">y_train_res</span><span class="p">)</span>
+<span class="n">acc_nb_10_res</span> <span class="o">=</span> <span class="n">get_accuracy</span><span class="p">(</span><span class="n">y_test_res</span><span class="p">,</span> <span class="n">bag_nb_10_res</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_res</span><span class="p">))</span>
+
+<span class="n">bag_nb_20_res</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">GaussianNB</span><span class="p">(),</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">bag_nb_20_res</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_res</span><span class="p">,</span> <span class="n">y_train_res</span><span class="p">)</span>
+<span class="n">acc_nb_20_res</span> <span class="o">=</span> <span class="n">get_accuracy</span><span class="p">(</span><span class="n">y_test_res</span><span class="p">,</span> <span class="n">bag_nb_20_res</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_res</span><span class="p">))</span>
+
+<span class="c1"># ---- Bagging SVM ----</span>
+<span class="n">svm_base_res</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">StandardScaler</span><span class="p">(),</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">))</span>
+
+<span class="n">bag_svm_10_res</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">svm_base_res</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">bag_svm_10_res</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_res</span><span class="p">,</span> <span class="n">y_train_res</span><span class="p">)</span>
+<span class="n">acc_svm_10_res</span> <span class="o">=</span> <span class="n">get_accuracy</span><span class="p">(</span><span class="n">y_test_res</span><span class="p">,</span> <span class="n">bag_svm_10_res</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_res</span><span class="p">))</span>
+
+<span class="n">bag_svm_20_res</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">svm_base_res</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">bag_svm_20_res</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_res</span><span class="p">,</span> <span class="n">y_train_res</span><span class="p">)</span>
+<span class="n">acc_svm_20_res</span> <span class="o">=</span> <span class="n">get_accuracy</span><span class="p">(</span><span class="n">y_test_res</span><span class="p">,</span> <span class="n">bag_svm_20_res</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_res</span><span class="p">))</span>
+
+<span class="n">results</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span>
+    <span class="p">{</span><span class="s2">&quot;Model&quot;</span><span class="p">:</span> <span class="s2">&quot;Bagging Naive Bayes&quot;</span><span class="p">,</span> <span class="s2">&quot;Dataset&quot;</span><span class="p">:</span> <span class="s2">&quot;Setelah SMOTE&quot;</span><span class="p">,</span> <span class="s2">&quot;n_estimators&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;Accuracy (%)&quot;</span><span class="p">:</span> <span class="n">acc_nb_10_res</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;Model&quot;</span><span class="p">:</span> <span class="s2">&quot;Bagging Naive Bayes&quot;</span><span class="p">,</span> <span class="s2">&quot;Dataset&quot;</span><span class="p">:</span> <span class="s2">&quot;Setelah SMOTE&quot;</span><span class="p">,</span> <span class="s2">&quot;n_estimators&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;Accuracy (%)&quot;</span><span class="p">:</span> <span class="n">acc_nb_20_res</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;Model&quot;</span><span class="p">:</span> <span class="s2">&quot;Bagging SVM&quot;</span><span class="p">,</span> <span class="s2">&quot;Dataset&quot;</span><span class="p">:</span> <span class="s2">&quot;Setelah SMOTE&quot;</span><span class="p">,</span> <span class="s2">&quot;n_estimators&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;Accuracy (%)&quot;</span><span class="p">:</span> <span class="n">acc_svm_10_res</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;Model&quot;</span><span class="p">:</span> <span class="s2">&quot;Bagging SVM&quot;</span><span class="p">,</span> <span class="s2">&quot;Dataset&quot;</span><span class="p">:</span> <span class="s2">&quot;Setelah SMOTE&quot;</span><span class="p">,</span> <span class="s2">&quot;n_estimators&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;Accuracy (%)&quot;</span><span class="p">:</span> <span class="n">acc_svm_20_res</span><span class="p">},</span>
+<span class="p">])</span>
+
+<span class="c1"># ==========================</span>
+<span class="c1"># Hasil akhir</span>
+<span class="c1"># ==========================</span>
+<span class="n">results_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== Hasil Bagging Naive Bayes &amp; SVM ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== Hasil Bagging Naive Bayes &amp; SVM ===
+                 Model        Dataset  n_estimators  Accuracy (%)
+0  Bagging Naive Bayes  Sebelum SMOTE            10         73.96
+1  Bagging Naive Bayes  Sebelum SMOTE            20         73.96
+2          Bagging SVM  Sebelum SMOTE            10         82.64
+3          Bagging SVM  Sebelum SMOTE            20         82.26
+4  Bagging Naive Bayes  Setelah SMOTE            10         76.25
+5  Bagging Naive Bayes  Setelah SMOTE            20         76.56
+6          Bagging SVM  Setelah SMOTE            10         86.56
+7          Bagging SVM  Setelah SMOTE            20         86.56
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -823,10 +1723,22 @@ Name: count, dtype: int64
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data-iris"><strong>Load data iris</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hapus-15-data-awal-dari-class-iris-setosa"><strong>Hapus 15 data awal dari class iris-setosa</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menampilkan-data-yang-sudah-dihapus"><strong>Menampilkan data yang sudah dihapus</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meampilkan-data-yang-sudah-seimbang-dengan-smote"><strong>Meampilkan data yang sudah seimbang dengan SMOTE</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data-iris"><strong>Load data iris</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hapus-15-data-awal-dari-class-iris-setosa"><strong>Hapus 15 data awal dari class iris-setosa</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menampilkan-data-yang-sudah-dihapus"><strong>Menampilkan data yang sudah dihapus</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data-yang-sudah-seimbang-dengan-pca"><strong>Visualisasi data yang sudah seimbang dengan pca</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-dengan-naive-bayes-dan-svm"><strong>Klasifikasi dengan Naive Bayes dan SVM</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-menggunakan-baggingclassifier"><strong>Klasifikasi menggunakan BaggingClassifier</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data-bank"><strong>Load data Bank</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#buat-data-imbalance"><strong>Buat Data Imbalance</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menampilkan-data-kolom-y-yang-tidak-seimbang"><strong>Menampilkan Data Kolom “y” Yang Tidak Seimbang</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menampilkan-data-yang-sudah-di-smote"><strong>Menampilkan Data Yang sudah di SMOTE</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-dengan-svm-dan-nb"><strong>Klasifikasi Dengan SVM dan NB</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Klasifikasi menggunakan BaggingClassifier</strong></a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
