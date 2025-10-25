@@ -8,3 +8,4 @@ chapters:
 - file: DataUnderstanding
 - file: PreProcessing
 - file: Oversampling
+- file: TimeSeries
