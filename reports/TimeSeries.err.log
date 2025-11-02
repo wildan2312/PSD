@@ -31,8 +31,6 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['s5p_no2_daily = s5p_no2.aggregate_temporal_period(', '    period="day",', '    reducer="mean"', ')', '']
-...
-['job = s5p_no2_avg.execute_batch(', '    title="NO2 Harian di Bangkalan (2022–2025)",', '    outputfile="no2_bangkalan_timeseries.csv",', '    format="CSV"', ')']
+connection = openeo.connect("openeo.dataspace.copernicus.eu").authenticate_oidc()
 -------------------
 
