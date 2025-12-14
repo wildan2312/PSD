@@ -10,3 +10,4 @@ chapters:
 - file: Oversampling
 - file: TimeSeries
 - file: EkstraksiAudio
+- file: KlasifikasiECG
